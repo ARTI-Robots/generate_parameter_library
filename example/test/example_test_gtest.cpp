@@ -85,7 +85,8 @@ TEST_F(ExampleTest, try_get_params) {
 TEST_F(ExampleTest, update_unrelated_param) {
   ASSERT_TRUE(param_listener_->try_get_params(params_));
 
-  // if some unrelated parameter is updated, the params_ should not be updated/considered as old
+  // if some unrelated parameter is updated, the params_ should not be
+  // updated/considered as old
   example_test_node_->declare_parameter("some_other_parameter", 42);
   ASSERT_FALSE(param_listener_->is_old(params_));
   const rclcpp ::Parameter new_param("some_other_parameter", 43);
